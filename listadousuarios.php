@@ -19,7 +19,6 @@
         $consulta="INSERT INTO usuarios (nombre,apellidos,edad,curso,puntuacion,correo) values ('$nombre','$apellidos',$edad,$curso,$puntuacion,'$correo')";
       $insertacion = $conector->query($consulta);
      $resultado = $conector->query("SELECT * FROM usuarios");
-
      foreach ($resultado as $fila) {
         echo "Usuario ".$fila['id']."<br>"."Nombre: ".$fila['nombre']."<br>"."Apellidos: ".$fila['apellidos']."<br>"."Edad: ".$fila['edad']."<br>"."Curso: ".$fila['curso']."<br>"."Puntuacion: ".$fila['puntuacion']."<br>";
         echo "Correo: ".$fila['correo']."<br> <br>";
