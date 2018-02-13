@@ -5,7 +5,6 @@
     <title></title>
   </head>
   <body>
-    <link rel="stylesheet" href="css.css">
     <?php
     $conector = new mysqli("localhost", "root", "", "juegos");
       if ($conector->connect_errno) {
@@ -16,12 +15,14 @@
         $edad=$_POST['edad'];
         $curso=$_POST['curso'];
         $puntuacion=$_POST['puntuacion'];
-        $consulta="INSERT INTO usuarios (nombre,apellidos,edad,curso,puntuacion) values ('$nombre','$apellidos',$edad,$curso,$puntuacion)";
+        $correo=$_POST['correo'];
+        $consulta="INSERT INTO usuarios (nombre,apellidos,edad,curso,puntuacion,correo) values ('$nombre','$apellidos',$edad,$curso,$puntuacion,'$correo')";
       $insertacion = $conector->query($consulta);
      $resultado = $conector->query("SELECT * FROM usuarios");
 
      foreach ($resultado as $fila) {
-        echo "<strong>Usuario</strong> ".$fila['id']."<br>"."<strong>Nombre: </strong>".$fila['nombre']."<br>"."<strong>Apellidos: </strong>".$fila['apellidos']."<br>"."<strong>Edad: </strong>".$fila['edad']."<br>"."<strong>Curso: </strong>".$fila['curso']."<br>"."<strong>Puntuacion: </strong>".$fila['puntuacion']."<br> <br>";
+        echo "Usuario ".$fila['id']."<br>"."Nombre: ".$fila['nombre']."<br>"."Apellidos: ".$fila['apellidos']."<br>"."Edad: ".$fila['edad']."<br>"."Curso: ".$fila['curso']."<br>"."Puntuacion: ".$fila['puntuacion']."<br>";
+        echo "Correo: ".$fila['correo']."<br> <br>";
       }
     }
      ?>

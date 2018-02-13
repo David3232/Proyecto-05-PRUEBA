@@ -10,6 +10,7 @@
       <input type="text" name="apellidos" value="apellidos">
       <input type="text" name="edad" value="edad">
       <input type="text" name="curso" value="curso">
+      <input type="text" name="correo" value="Correo">
       <input type="text" name="puntuacion" value="puntuacion">
       <input type="submit" name="Enviar" value="Enviar">
     </form>
