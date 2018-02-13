@@ -5,11 +5,14 @@
     <title></title>
   </head>
   <body>
+
     <?php
+    // Nos conectamos a la base de datos
     $conector = new mysqli("localhost", "root", "", "juegos");
       if ($conector->connect_errno) {
         echo "Fallo al conectar a MySQL: " . $conector->connect_error;
       } else {
+        // Traemos los datos de insertarusuario
         $nombre=$_POST['nombre'];
         $apellidos=$_POST['apellidos'];
         $edad=$_POST['edad'];
@@ -19,6 +22,7 @@
         $consulta="INSERT INTO usuarios (nombre,apellidos,edad,curso,puntuacion,correo) values ('$nombre','$apellidos',$edad,$curso,$puntuacion,'$correo')";
       $insertacion = $conector->query($consulta);
      $resultado = $conector->query("SELECT * FROM usuarios");
+   // Sacando resultado por pantalla
      foreach ($resultado as $fila) {
         echo "Usuario ".$fila['id']."<br>"."Nombre: ".$fila['nombre']."<br>"."Apellidos: ".$fila['apellidos']."<br>"."Edad: ".$fila['edad']."<br>"."Curso: ".$fila['curso']."<br>"."Puntuacion: ".$fila['puntuacion']."<br>";
         echo "Correo: ".$fila['correo']."<br> <br>";
